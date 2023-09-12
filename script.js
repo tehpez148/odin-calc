@@ -1,7 +1,8 @@
 let display = '';
-let firstNo = '1';
-let secondNo = '1';
+let firstNo = '';
+let secondNo = '';
 let operator = '';
+let i = 0;
 
 function calculate (firstNo, secondNo, operator){
     let ans = 0;
@@ -29,20 +30,22 @@ function calculate (firstNo, secondNo, operator){
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
 buttons.forEach((button) =>{
     button.addEventListener('click', () => {
-        let i = 0;
         switch (i){
             case 0:
-                firstNo = Number(button.id);
-                showResults.textContent = Number(button.id);
-                i++;
+                firstNo += Number(button.id);
+                showResults.textContent = firstNo;
+                
             case 1:
-                secondNo = Number(button.id);
-                showResults.textContent = Number(button.id);
+                secondNo += Number(button.id);
+                showResults.textContent = secondNo;
                 i++
         }
         
     });
 });
+
+
+
 
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
@@ -58,6 +61,7 @@ goButton.addEventListener('click', () =>{
 const container = document.getElementById('screen');
 
 const showResults = document.createElement('p');
+
 
 container.appendChild(showResults);
 
