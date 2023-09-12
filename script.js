@@ -4,6 +4,8 @@ let secondNo = '';
 let operator = '';
 let i = 0;
 
+// basic calculate function, take two numbers and an operator as a parameter. 
+
 function calculate (firstNo, secondNo, operator){
     let ans = 0;
     switch (operator){
@@ -23,7 +25,10 @@ function calculate (firstNo, secondNo, operator){
     };};
     
 
-
+const reset = document.getElementById('clear');
+reset.addEventListener('click',() => {
+    location.reload();
+});
 
 
 
@@ -54,6 +59,7 @@ goButton.addEventListener('click', () =>{
     console.log(calculate(firstNo, secondNo, 'add'));
     showResults.textContent = calculate(firstNo,secondNo,'add');
 });
+
 
 
 
