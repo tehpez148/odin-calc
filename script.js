@@ -1,4 +1,7 @@
-
+let display = '';
+let firstNo = '1';
+let secondNo = '1';
+let operator = '';
 
 function calculate (firstNo, secondNo, operator){
     let ans = 0;
@@ -19,8 +22,33 @@ function calculate (firstNo, secondNo, operator){
     };};
     
 
-console.log(calculate (3,2, 'add'));
-console.log(calculate(3,2, 'minus'));
-console.log(calculate(4,2,'divide'));
-console.log(calculate(3,2, 'times'));
+
+
+
+
+const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
+buttons.forEach((button) =>{
+    button.addEventListener('click', () => {
+        let i = 0;
+        switch (i){
+            case 0:
+                firstNo = Number(button.id);
+                i++;
+            case 1:
+                secondNo = Number(button.id);
+                i++
+        }
+        
+    });
+});
+
+const goButton = document.getElementById('equals');
+goButton.addEventListener('click', () =>{
+    console.log(firstNo);
+    console.log(secondNo);
+    console.log(calculate(firstNo, secondNo, 'add'));
+});
+
+console.log(firstNo);
+console.log(secondNo);
 
