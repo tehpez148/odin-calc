@@ -33,9 +33,11 @@ buttons.forEach((button) =>{
         switch (i){
             case 0:
                 firstNo = Number(button.id);
+                showResults.textContent = Number(button.id);
                 i++;
             case 1:
                 secondNo = Number(button.id);
+                showResults.textContent = Number(button.id);
                 i++
         }
         
@@ -47,7 +49,20 @@ goButton.addEventListener('click', () =>{
     console.log(firstNo);
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, 'add'));
+    showResults.textContent = calculate(firstNo,secondNo,'add');
 });
+
+
+
+
+const container = document.getElementById('screen');
+
+const showResults = document.createElement('p');
+
+container.appendChild(showResults);
+
+
+
 
 console.log(firstNo);
 console.log(secondNo);
