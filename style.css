@@ -1,3 +1,4 @@
+
 body {
     background-color:cadetblue;
     margin:40px;
@@ -48,8 +49,7 @@ button:active {
     margin: 20px 10px 50px 20px;
     border-style:groove;
     border-radius: 8px;
-
-
+    font-size: 30px;
 }
 
 #buttons{

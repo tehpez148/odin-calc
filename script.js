@@ -9,7 +9,7 @@ let i = 0;
 function calculate (firstNo, secondNo, operator){
     let ans = 0;
     switch (operator){
-        case 'add':
+        case 'plus':
            ans = parseInt(firstNo) + parseInt(secondNo);
            return ans;
         case 'minus':
@@ -35,17 +35,26 @@ reset.addEventListener('click',() => {
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
 buttons.forEach((button) =>{
     button.addEventListener('click', () => {
-        switch (i){
-            case 0:
-                firstNo += Number(button.id);
-                showResults.textContent = firstNo;
-                
-            case 1:
-                secondNo += Number(button.id);
+        if (i === 0){
+                firstNo += (button.id);
+                showResults.textContent = firstNo;}
+        else if (i === 1){
+                secondNo += (button.id);
                 showResults.textContent = secondNo;
-                i++
-        }
+        };
         
+    });
+});
+
+const opers = document.getElementById('bottoms').querySelectorAll('.oper');
+opers.forEach((oper) =>{
+    oper.addEventListener('click', () => {
+        i++;
+        operator = (oper.id);
+        showResults.textContent = operator;
+        console.log(`first number is${firstNo}`);
+        console.log(`second number is ${secondNo}`);
+        console.log(i);
     });
 });
 
@@ -56,8 +65,8 @@ const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
     console.log(firstNo);
     console.log(secondNo);
-    console.log(calculate(firstNo, secondNo, 'add'));
-    showResults.textContent = calculate(firstNo,secondNo,'add');
+    console.log(calculate(firstNo, secondNo, operator));
+    showResults.textContent = calculate(firstNo,secondNo,operator);
 });
 
 
