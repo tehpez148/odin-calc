@@ -61,7 +61,8 @@ opers.forEach((oper) =>{
             showResults.textContent = operator;
             console.log(`first number is${firstNo}`);
             console.log(`second number is ${secondNo}`);
-            console.log(`i is${i}`);}
+            console.log(`i is${i}`);
+            dotButton.disabled = false;}
         else if (i === 1){
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
@@ -70,6 +71,7 @@ opers.forEach((oper) =>{
             console.log(`first number is${firstNo}`);
             console.log(`second number is ${secondNo}`);
             console.log(`i is ${i}`);
+            dotButton.disabled = false;
         
         }
     });
@@ -86,10 +88,14 @@ goButton.addEventListener('click', () =>{
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
     showResults.textContent = (Math.round(answer * 10) / 10);
+    dotButton.disabled = false;
 });
 
-
-
+// disables dot button on first press, which is reset by operator function
+const dotButton = document.getElementById('.');
+dotButton.addEventListener('click', () =>{
+    dotButton.disabled = true;
+});
 
 
 const container = document.getElementById('screen');
