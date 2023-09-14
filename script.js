@@ -23,15 +23,15 @@ function calculate (firstNo, secondNo, operator){
             return ans;
 
     };};
-    
 
+// reset function if clear button is pressed
 const reset = document.getElementById('clear');
 reset.addEventListener('click',() => {
     location.reload();
 });
 
 
-
+// adds an event listener all buttons with digits, allocated button to either firstNo or secondNo based on an i value.
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
 buttons.forEach((button) =>{
     button.addEventListener('click', () => {
@@ -47,6 +47,9 @@ buttons.forEach((button) =>{
     });
 });
 
+//Adds an event listener to all buttons with operators. Changes i value to allow the next digit button pressed
+// to be allocated to secondNo. If secondNo has been pressed already, calculate the two values so far and allocate 
+// the result to the firstNo, and then allows for a new secondNo to be allocated by clearing the old secondNo value.
 const opers = document.getElementById('bottoms').querySelectorAll('.oper');
 opers.forEach((oper) =>{
     oper.addEventListener('click', () => {
