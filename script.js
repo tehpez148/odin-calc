@@ -37,6 +37,7 @@ buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         if (i === 0){
                 firstNo += (button.id);
+
                 showResults.textContent = firstNo;}
         else if (i === 1){
                 secondNo += (button.id);
@@ -49,12 +50,23 @@ buttons.forEach((button) =>{
 const opers = document.getElementById('bottoms').querySelectorAll('.oper');
 opers.forEach((oper) =>{
     oper.addEventListener('click', () => {
-        i++;
-        operator = (oper.id);
-        showResults.textContent = operator;
-        console.log(`first number is${firstNo}`);
-        console.log(`second number is ${secondNo}`);
-        console.log(i);
+        if ( i === 0){
+            i++;
+            operator = (oper.id);
+            showResults.textContent = operator;
+            console.log(`first number is${firstNo}`);
+            console.log(`second number is ${secondNo}`);
+            console.log(`i is${i}`);}
+        else if (i === 1){
+            firstNo = calculate(firstNo,secondNo,operator);
+            secondNo = '';
+            operator = (oper.id);
+            showResults.textContent = operator;
+            console.log(`first number is${firstNo}`);
+            console.log(`second number is ${secondNo}`);
+            console.log(`i is ${i}`);
+        
+        }
     });
 });
 
