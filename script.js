@@ -1,3 +1,5 @@
+
+// declares variables for various functions.
 let display = '';
 let firstNo = '';
 let secondNo = '';
@@ -75,13 +77,15 @@ opers.forEach((oper) =>{
 
 
 
-
+//runs calculate function on current firstNo and secondNo values with last given operator. Rounds to 1st decimal place
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
+    let answer = '';
     console.log(firstNo);
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
-    showResults.textContent = calculate(firstNo,secondNo,operator);
+    answer = calculate(firstNo,secondNo,operator);
+    showResults.textContent = (Math.round(answer * 10) / 10).toFixed(1);
 });
 
 
@@ -97,7 +101,4 @@ container.appendChild(showResults);
 
 
 
-
-console.log(firstNo);
-console.log(secondNo);
 
