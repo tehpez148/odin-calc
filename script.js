@@ -9,16 +9,16 @@ let i = 0;
 function calculate (firstNo, secondNo, operator){
     let ans = 0;
     switch (operator){
-        case 'plus':
+        case '+':
            ans = parseInt(firstNo) + parseInt(secondNo);
            return ans;
-        case 'minus':
+        case '-':
             ans = parseInt(firstNo) - parseInt(secondNo);
             return ans;
-        case 'divide':
+        case '/':
             ans = parseInt(firstNo) / parseInt(secondNo);
             return ans;
-        case 'times':
+        case 'x':
             ans = parseInt(firstNo) * parseInt(secondNo);
             return ans;
 
