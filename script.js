@@ -12,16 +12,16 @@ function calculate (firstNo, secondNo, operator){
     let ans = 0;
     switch (operator){
         case '+':
-           ans = parseInt(firstNo) + parseInt(secondNo);
+           ans = parseFloat(firstNo) + parseFloat(secondNo);
            return ans;
         case '-':
-            ans = parseInt(firstNo) - parseInt(secondNo);
+            ans = parseFloat(firstNo) - parseFloat(secondNo);
             return ans;
         case '/':
-            ans = parseInt(firstNo) / parseInt(secondNo);
+            ans = parseFloat(firstNo) / parseFloat(secondNo);
             return ans;
         case 'x':
-            ans = parseInt(firstNo) * parseInt(secondNo);
+            ans = parseFloat(firstNo) * parseFloat(secondNo);
             return ans;
 
     };};
@@ -85,7 +85,7 @@ goButton.addEventListener('click', () =>{
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
-    showResults.textContent = (Math.round(answer * 10) / 10).toFixed(1);
+    showResults.textContent = (Math.round(answer * 10) / 10);
 });
 
 
