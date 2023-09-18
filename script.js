@@ -82,13 +82,17 @@ opers.forEach((oper) =>{
 //runs calculate function on current firstNo and secondNo values with last given operator. Rounds to 1st decimal place
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
+    if (secondNo === ''){
+        
+    }
+    else{
     let answer = '';
     console.log(firstNo);
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
     showResults.textContent = (Math.round(answer * 10) / 10);
-    dotButton.disabled = false;
+    dotButton.disabled = false;}
 });
 
 // disables dot button on first press, which is reset by operator function
@@ -98,11 +102,9 @@ dotButton.addEventListener('click', () =>{
 });
 
 
+// adds results to 'screen' div
 const container = document.getElementById('screen');
-
 const showResults = document.createElement('p');
-
-
 container.appendChild(showResults);
 
 
