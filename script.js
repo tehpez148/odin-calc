@@ -29,7 +29,12 @@ function calculate (firstNo, secondNo, operator){
 // reset function if clear button is pressed
 const reset = document.getElementById('clear');
 reset.addEventListener('click',() => {
-    location.reload();
+     display = '';
+     firstNo = '';
+     secondNo = '';
+     operator = '';
+     i = 0;
+     showResults.textContent = '';
 });
 
 
@@ -83,7 +88,7 @@ opers.forEach((oper) =>{
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
     if (secondNo === ''){
-        
+
     }
     else{
     let answer = '';
