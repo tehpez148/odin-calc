@@ -5,6 +5,7 @@ let firstNo = '';
 let secondNo = '';
 let operator = '';
 let i = 0;
+let answer = 0;
 
 // basic calculate function, take two numbers and an operator as a parameter. 
 
@@ -36,6 +37,7 @@ reset.addEventListener('click',() => {
      i = 0;
      showResults.textContent = '';
      showEquation.textContent = '';
+     goButton.disabled = false;
     
 });
 
@@ -72,15 +74,26 @@ opers.forEach((oper) =>{
             console.log(`second number is ${secondNo}`);
             console.log(`i is ${i}`);
             dotButton.disabled = false;}
+            /** 
+        if (i===1 && goButton.disabled === true){
+            showEquation.textContent = answer;
+            firstNo = answer;
+            answer = 0;
+            secondNo = '';
+            operator = (oper.id);
+            showEquation.textContent += operator;
+            showResults.textContent = operator;
+            dotButton.disabled = false;
+            goButton.disabled = false;
+                        
+        } 
+    */
         else if (i === 1){
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
             operator = (oper.id);
             showEquation.textContent += operator;
             showResults.textContent = operator;
-            console.log(`first number is${firstNo}`);
-            console.log(`second number is ${secondNo}`);
-            console.log(`i is ${i}`);
             dotButton.disabled = false;
         
         }
@@ -97,14 +110,15 @@ goButton.addEventListener('click', () =>{
 
     }
     else{
-    let answer = '';
+    
     console.log(firstNo);
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
     showEquation.textContent += ("=" + (Math.round(answer) *10)/10);
     showResults.textContent = (Math.round(answer * 10) / 10);
-    dotButton.disabled = false;}
+    dotButton.disabled = false;
+    goButton.disabled = true;}
 });
 
 // disables dot button on first press, which is reset by operator function
@@ -114,11 +128,14 @@ dotButton.addEventListener('click', () =>{
 });
 
 
+
+
 // adds results to 'screen' div
 const currentContainer = document.getElementById('current');
 const showResults = document.createElement('p');
 currentContainer.appendChild(showResults);
 
+//adds running equation to 'screen' div
 const equationContainer = document.getElementById('equation');
 const showEquation = document.createElement('p');
 equationContainer.appendChild(showEquation);
