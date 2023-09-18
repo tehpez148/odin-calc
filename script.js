@@ -35,7 +35,8 @@ reset.addEventListener('click',() => {
      operator = '';
      i = 0;
      showResults.textContent = '';
-     showEquation.reset();
+     showEquation.textContent = '';
+    
 });
 
 
@@ -45,11 +46,11 @@ buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         if (i === 0){
                 firstNo += (button.id);
-                showEquation.append(firstNo);
+                showEquation.textContent += firstNo;
                 showResults.textContent = firstNo;}
         else if (i === 1){
                 secondNo += (button.id);
-                showEquation.append(secondNo);
+                showEquation.textContent += secondNo;
                 showResults.textContent = secondNo;
         };
         
@@ -65,7 +66,7 @@ opers.forEach((oper) =>{
         if ( i === 0){
             i++;
             operator = (oper.id);
-            showEquation.append(operator);
+            showEquation.textContent += operator;
             showResults.textContent = operator;
             console.log(`first number is${firstNo}`);
             console.log(`second number is ${secondNo}`);
@@ -75,7 +76,7 @@ opers.forEach((oper) =>{
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
             operator = (oper.id);
-            showEquation.append(operator);
+            showEquation.textContent += operator;
             showResults.textContent = operator;
             console.log(`first number is${firstNo}`);
             console.log(`second number is ${secondNo}`);
@@ -101,7 +102,7 @@ goButton.addEventListener('click', () =>{
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
-    showEquation.append("=" + (Math.round(answer) *10)/10);
+    showEquation.textContent += ("=" + (Math.round(answer) *10)/10);
     showResults.textContent = (Math.round(answer * 10) / 10);
     dotButton.disabled = false;}
 });
