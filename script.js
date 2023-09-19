@@ -114,6 +114,10 @@ const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
     if (secondNo === '')
         {}
+    else if (operator ==='/' && secondNo === '0'){
+        alert("no ;)")
+        location.reload();
+    }
     else{
     
     console.log(firstNo);
