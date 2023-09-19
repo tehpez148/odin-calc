@@ -43,7 +43,7 @@ reset.addEventListener('click',() => {
      dotButton.disabled = false;
     
 });
-
+/**
 const backSpace = document.getElementById('delete');
 backSpace.addEventListener('click',() =>{
     if(showResults === firstNo){
@@ -61,6 +61,7 @@ backSpace.addEventListener('click',() =>{
             secondNo = '';}
 
 });
+*/
 
 // adds an event listener all buttons with digits, allocated button to either firstNo or secondNo based on an i value.
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
@@ -68,17 +69,17 @@ buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         if (i === 0){
                 firstNo += (button.id);
-                showEquation.textContent += firstNo;
+                
                 showResults.textContent = firstNo;
                 for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}}
         if (i === 1){
                 secondNo += (button.id);
-                showEquation.textContent += secondNo;
                 showResults.textContent = secondNo;
+                
                 for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
         } else if (i === 2) {
             secondNo += (button.id);
-            showEquation.textContent += secondNo;
+            
             showResults.textContent = secondNo;
             for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
         }
@@ -90,12 +91,13 @@ buttons.forEach((button) =>{
 // to be allocated to secondNo. If secondNo has been pressed already, calculate the two values so far and allocate 
 // the result to the firstNo, and then allows for a new secondNo to be allocated by clearing the old secondNo value.
 const opers = document.getElementById('bottoms').querySelectorAll('.oper');
-for( let j = 0; j <opers.length; j++){opers[j].disabled=true;};
+for ( let j = 0; j <opers.length; j++){opers[j].disabled=true;};
 opers.forEach((oper) =>{
     oper.addEventListener('click', () => {
         if ( i === 0){
             i++;
             operator = (oper.id);
+            showEquation.textContent += firstNo;
             showEquation.textContent += operator;
             showResults.textContent = operator;
             dotButton.disabled = false;
@@ -108,6 +110,7 @@ opers.forEach((oper) =>{
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
             operator = (oper.id);
+            showEquation.textContent += firstNo;
             showEquation.textContent += operator;
             showResults.textContent = operator;
             dotButton.disabled = false;
@@ -121,6 +124,7 @@ opers.forEach((oper) =>{
             secondNo = '';
             operator = (oper.id);
             showResults.textContent = operator;
+            showEquation.textContent += firstNo;
             showEquation.textContent += operator;
             dotButton.disabled = false;
             goButton.disabled = false;
@@ -148,6 +152,7 @@ goButton.addEventListener('click', () =>{
     console.log(secondNo);
     console.log(calculate(firstNo, secondNo, operator));
     answer = calculate(firstNo,secondNo,operator);
+    showEquation.textContent += secondNo;
     showEquation.textContent += ("=" + (Math.round(answer) *10)/10);
     showResults.textContent = (Math.round(answer * 10) / 10);
     dotButton.disabled = false;
