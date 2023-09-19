@@ -7,6 +7,8 @@ let operator = '';
 let i = 0;
 let answer = 0;
 
+
+
 // basic calculate function, take two numbers and an operator as a parameter. 
 
 function calculate (firstNo, secondNo, operator){
@@ -42,6 +44,23 @@ reset.addEventListener('click',() => {
     
 });
 
+const backSpace = document.getElementById('delete');
+backSpace.addEventListener('click',() =>{
+    if(showResults === firstNo){
+            firstNo ='';
+            showResults.textContent = '';
+            showEquation.textContent = '';}
+    if (showResults === operator){
+            showResults.textContent - operator;
+            showEquation.textContent - operator;
+            operator = '';
+            opers.disabled = false;}
+    if (showResults === secondNo){
+            showResults.textContent - secondNo;
+            showEquation.textContent - secondNo;
+            secondNo = '';}
+
+});
 
 // adds an event listener all buttons with digits, allocated button to either firstNo or secondNo based on an i value.
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
@@ -50,16 +69,18 @@ buttons.forEach((button) =>{
         if (i === 0){
                 firstNo += (button.id);
                 showEquation.textContent += firstNo;
-                showResults.textContent = firstNo;}
+                showResults.textContent = firstNo;
+                for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}}
         if (i === 1){
                 secondNo += (button.id);
                 showEquation.textContent += secondNo;
                 showResults.textContent = secondNo;
+                for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
         } else if (i === 2) {
             secondNo += (button.id);
             showEquation.textContent += secondNo;
             showResults.textContent = secondNo;
-
+            for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
         }
         
     });
@@ -69,6 +90,7 @@ buttons.forEach((button) =>{
 // to be allocated to secondNo. If secondNo has been pressed already, calculate the two values so far and allocate 
 // the result to the firstNo, and then allows for a new secondNo to be allocated by clearing the old secondNo value.
 const opers = document.getElementById('bottoms').querySelectorAll('.oper');
+for( let j = 0; j <opers.length; j++){opers[j].disabled=true;};
 opers.forEach((oper) =>{
     oper.addEventListener('click', () => {
         if ( i === 0){
@@ -78,7 +100,8 @@ opers.forEach((oper) =>{
             showResults.textContent = operator;
             dotButton.disabled = false;
             console.log(operator);
-            console.log(i)}
+            console.log(i);
+            for (let j = 0; j <opers.length; j++){opers[j].disabled=true;};}
        
          else if (i === 1){
             
@@ -89,6 +112,7 @@ opers.forEach((oper) =>{
             showResults.textContent = operator;
             dotButton.disabled = false;
             console.log('this is happening');
+            for(let j = 0; j <opers.length; j++){opers[j].disabled=true;}
             
         } else {
             
@@ -101,7 +125,7 @@ opers.forEach((oper) =>{
             dotButton.disabled = false;
             goButton.disabled = false;
             console.log('no this is happening');
-
+            for(let j = 0; j < opers.length; j++){opers[j].disabled=true;}
         }
     });
 });
@@ -128,8 +152,8 @@ goButton.addEventListener('click', () =>{
     showResults.textContent = (Math.round(answer * 10) / 10);
     dotButton.disabled = false;
     goButton.disabled = true;
-    i =2;
-    }
+    opers.disabled = false;
+    i =2;}
 });
 
 // disables dot button on first press, which is reset by operator function
