@@ -38,6 +38,7 @@ reset.addEventListener('click',() => {
      showResults.textContent = '';
      showEquation.textContent = '';
      goButton.disabled = false;
+     dotButton.disabled = false;
     
 });
 
@@ -50,11 +51,16 @@ buttons.forEach((button) =>{
                 firstNo += (button.id);
                 showEquation.textContent += firstNo;
                 showResults.textContent = firstNo;}
-        else if (i === 1){
+        if (i === 1){
                 secondNo += (button.id);
                 showEquation.textContent += secondNo;
                 showResults.textContent = secondNo;
-        };
+        } else if (i === 2) {
+            secondNo += (button.id);
+            showEquation.textContent += secondNo;
+            showResults.textContent = secondNo;
+
+        }
         
     });
 });
@@ -70,32 +76,32 @@ opers.forEach((oper) =>{
             operator = (oper.id);
             showEquation.textContent += operator;
             showResults.textContent = operator;
-            console.log(`first number is${firstNo}`);
-            console.log(`second number is ${secondNo}`);
-            console.log(`i is ${i}`);
-            dotButton.disabled = false;}
-            /** 
-        if (i===1 && goButton.disabled === true){
-            showEquation.textContent = answer;
-            firstNo = answer;
-            answer = 0;
-            secondNo = '';
-            operator = (oper.id);
-            showEquation.textContent += operator;
-            showResults.textContent = operator;
             dotButton.disabled = false;
-            goButton.disabled = false;
-                        
-        } 
-    */
-        else if (i === 1){
+            console.log(operator);
+            console.log(i)}
+       
+         else if (i === 1){
+            
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
             operator = (oper.id);
             showEquation.textContent += operator;
             showResults.textContent = operator;
             dotButton.disabled = false;
-        
+            console.log('this is happening');
+            
+        } else {
+            
+            showEquation.textContent = answer;
+            firstNo = answer;
+            secondNo = '';
+            operator = (oper.id);
+            showResults.textContent = operator;
+            showEquation.textContent += operator;
+            dotButton.disabled = false;
+            goButton.disabled = false;
+            console.log('no this is happening');
+
         }
     });
 });
@@ -106,9 +112,8 @@ opers.forEach((oper) =>{
 //does nothing if no secondNo is given yet.
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
-    if (secondNo === ''){
-
-    }
+    if (secondNo === '')
+        {}
     else{
     
     console.log(firstNo);
@@ -118,7 +123,9 @@ goButton.addEventListener('click', () =>{
     showEquation.textContent += ("=" + (Math.round(answer) *10)/10);
     showResults.textContent = (Math.round(answer * 10) / 10);
     dotButton.disabled = false;
-    goButton.disabled = true;}
+    goButton.disabled = true;
+    i =2;
+    }
 });
 
 // disables dot button on first press, which is reset by operator function
