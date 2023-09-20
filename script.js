@@ -105,8 +105,9 @@ opers.forEach((oper) =>{
             for (let j = 0; j <opers.length; j++){opers[j].disabled=true;};}
        
          else if (i === 1){
-            showEquation.textContent = answer;
+            
             firstNo = calculate(firstNo,secondNo,operator);
+            showEquation.textContent = firstNo;
             secondNo = '';
             operator = (oper.id);
             showEquation.textContent += operator;
@@ -117,8 +118,9 @@ opers.forEach((oper) =>{
             
         } else {
             
-            showEquation.textContent = answer;
+            
             firstNo = answer;
+            showEquation.textContent = firstNo;
             secondNo = '';
             operator = (oper.id);
             showResults.textContent = operator;

@@ -36,6 +36,7 @@ button:active {
     height: 600px;
     background-color:lightgreen;
     border-radius: 10px;
+    box-shadow: 10px 10px darkgreen;
     
     
 
@@ -49,12 +50,16 @@ button:active {
     margin: 20px 10px 50px 20px;
     border-style:groove;
     border-radius: 8px;
-    font-size: 30px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #buttons{
     display: grid;
 }
+
 #toppers{
     display: flex;
     justify-content: center;
