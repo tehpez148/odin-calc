@@ -51,13 +51,13 @@ backSpace.addEventListener('click',() =>{
         showResults.textContent = showResults.textContent.slice(0,-1);}
     else if (operator != '') {
         operator = showResults.textContent.slice(0,-1);
-        showResults.textContent = showResults.textContent.slice(0,-1);}
+        showResults.textContent = showResults.textContent.slice(0,-1);
+        showEquation.textContent = showEquation.textContent.slice(0,-1);}
     else if (firstNo != ''){
         firstNo = showResults.textContent.slice(0,-1);
         showResults.textContent = showResults.textContent.slice(0,-1);
-        for (let j = 0; j <opers.length; j++){opers[j].disabled=true;
-    }
-    else{console.log("not doing")}
+        showEquation.textContent = showEquation.textContent.slice(0,-1);
+    } 
 
 
 });
