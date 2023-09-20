@@ -57,6 +57,9 @@ backSpace.addEventListener('click',() =>{
         firstNo = showResults.textContent.slice(0,-1);
         showResults.textContent = showResults.textContent.slice(0,-1);
         showEquation.textContent = showEquation.textContent.slice(0,-1);
+        for (let j = 0; j <opers.length; j++){opers[j].disabled=true;};
+        
+
     } 
 
 
