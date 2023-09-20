@@ -43,25 +43,24 @@ reset.addEventListener('click',() => {
      dotButton.disabled = false;
     
 });
-/**
+
 const backSpace = document.getElementById('delete');
 backSpace.addEventListener('click',() =>{
-    if(showResults === firstNo){
-            firstNo ='';
-            showResults.textContent = '';
-            showEquation.textContent = '';}
-    if (showResults === operator){
-            showResults.textContent - operator;
-            showEquation.textContent - operator;
-            operator = '';
-            opers.disabled = false;}
-    if (showResults === secondNo){
-            showResults.textContent - secondNo;
-            showEquation.textContent - secondNo;
-            secondNo = '';}
+    if (secondNo != ''){
+        secondNo = showResults.textContent.slice(0,-1);
+        showResults.textContent = showResults.textContent.slice(0,-1);}
+    else if (operator != '') {
+        operator = showResults.textContent.slice(0,-1);
+        showResults.textContent = showResults.textContent.slice(0,-1);}
+    else if (firstNo != ''){
+        firstNo = showResults.textContent.slice(0,-1);
+        showResults.textContent = showResults.textContent.slice(0,-1);
+        for (let j = 0; j <opers.length; j++){opers[j].disabled=true;
+    }
+    else{console.log("not doing")}
+
 
 });
-*/
 
 // adds an event listener all buttons with digits, allocated button to either firstNo or secondNo based on an i value.
 const buttons = document.getElementById('bottoms').querySelectorAll('.digits');
