@@ -5,7 +5,7 @@ let firstNo = '';
 let secondNo = '';
 let operator = '';
 let i = 0;
-let answer = 0;
+let answer = '';
 
 
 
@@ -105,11 +105,10 @@ opers.forEach((oper) =>{
             for (let j = 0; j <opers.length; j++){opers[j].disabled=true;};}
        
          else if (i === 1){
-            
+            showEquation.textContent = answer;
             firstNo = calculate(firstNo,secondNo,operator);
             secondNo = '';
             operator = (oper.id);
-            showEquation.textContent += firstNo;
             showEquation.textContent += operator;
             showResults.textContent = operator;
             dotButton.disabled = false;
@@ -123,7 +122,6 @@ opers.forEach((oper) =>{
             secondNo = '';
             operator = (oper.id);
             showResults.textContent = operator;
-            showEquation.textContent += firstNo;
             showEquation.textContent += operator;
             dotButton.disabled = false;
             goButton.disabled = false;
