@@ -32,23 +32,32 @@ function calculate (firstNo, secondNo, operator){
 // reset function if clear button is pressed
 const reset = document.getElementById('clear');
 reset.addEventListener('click',() => {
-     display = '';
-     firstNo = '';
-     secondNo = '';
-     operator = '';
-     i = 0;
-     showResults.textContent = '';
-     showEquation.textContent = '';
-     goButton.disabled = false;
-     dotButton.disabled = false;
-     for (let k = 0; k <buttons.length; k++){buttons[k].disabled=false;}
-     for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
+    resetAll();
     
 });
 
+function resetAll (){
+    display = '';
+    firstNo = '';
+    secondNo = '';
+    operator = '';
+    i = 0;
+    showResults.textContent = '';
+    showEquation.textContent = '';
+    goButton.disabled = false;
+    dotButton.disabled = false;
+    for (let k = 0; k <buttons.length; k++){buttons[k].disabled=false;}
+    for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
+
+};
+
+const fixBugPlease = document.getElementById(1);
 const backSpace = document.getElementById('delete');
-backSpace.addEventListener('click',() =>{
-    if (secondNo != ''){
+backSpace.addEventListener('click',() =>{ 
+    if (fixBugPlease.disabled) {
+        resetAll()
+    }
+    else if (secondNo != ''){
         secondNo = showResults.textContent.slice(0,-1);
         showResults.textContent = showResults.textContent.slice(0,-1);}
     else if (operator != '') {
