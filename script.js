@@ -41,6 +41,8 @@ reset.addEventListener('click',() => {
      showEquation.textContent = '';
      goButton.disabled = false;
      dotButton.disabled = false;
+     for (let k = 0; k <buttons.length; k++){buttons[k].disabled=false;}
+     for( let j = 0; j <opers.length; j++){opers[j].disabled=false;}
     
 });
 
@@ -105,8 +107,9 @@ opers.forEach((oper) =>{
             dotButton.disabled = false;
             console.log(operator);
             console.log(i);
-            for (let j = 0; j <opers.length; j++){opers[j].disabled=true;};}
-       
+            for (let j = 0; j <opers.length; j++){opers[j].disabled=true;}
+            for (let k = 0; k <buttons.length; k++){buttons[k].disabled=false;}
+        }
          else if (i === 1){
             
             firstNo = calculate(firstNo,secondNo,operator);
@@ -117,7 +120,8 @@ opers.forEach((oper) =>{
             showResults.textContent = operator;
             dotButton.disabled = false;
             console.log('this is happening');
-            for(let j = 0; j <opers.length; j++){opers[j].disabled=true;}
+            for(let j = 0; j <opers.length; j++){buttons[j].disabled=true;}
+            for (let k = 0; k <buttons.length; k++){buttons[k].disabled=false;}
             
         } else {
             
@@ -132,6 +136,7 @@ opers.forEach((oper) =>{
             goButton.disabled = false;
             console.log('no this is happening');
             for(let j = 0; j < opers.length; j++){opers[j].disabled=true;}
+            for (let k = 0; k < buttons.length; k++){buttons[k].disabled=false;}
         }
     });
 });
@@ -140,6 +145,7 @@ opers.forEach((oper) =>{
 
 //runs calculate function on current firstNo and secondNo values with last given operator. Rounds to 1st decimal place. 
 //does nothing if no secondNo is given yet.
+// detects division by 0 and rejects ;)  
 const goButton = document.getElementById('equals');
 goButton.addEventListener('click', () =>{
     if (secondNo === '')
@@ -160,6 +166,7 @@ goButton.addEventListener('click', () =>{
     dotButton.disabled = false;
     goButton.disabled = true;
     opers.disabled = false;
+    for (let k = 0; k < buttons.length; k++){buttons[k].disabled=true;}
     i =2;}
 });
 
